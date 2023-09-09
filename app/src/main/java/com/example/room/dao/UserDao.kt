@@ -6,10 +6,6 @@ import androidx.room.Insert
 import androidx.room.Query
 import com.example.room.entities.User
 
-@Dao
 interface UserDao {
-    @Insert
-    suspend fun userName(user:User)
-    @Delete
-    suspend fun delUserName(user: User)
+
 }
