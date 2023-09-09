@@ -4,4 +4,5 @@
     <string name="enter_number">Enter Number</string>
     <string name="save">Save</string>
     <string name="display">Display</string>
+    <string name="main_compose">Main</string>
 </resources>
