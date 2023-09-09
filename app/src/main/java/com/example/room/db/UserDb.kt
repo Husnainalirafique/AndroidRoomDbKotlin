@@ -8,6 +8,6 @@ import com.example.room.DB_NAME
 import com.example.room.dao.UserDao
 import com.example.room.entities.User
 
-abstract class UserDb{
+abstract class UserDb {
 
 }
