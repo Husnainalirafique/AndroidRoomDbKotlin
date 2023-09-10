@@ -1,12 +1,9 @@
 package com.example.room.database
-import android.content.Context
-import android.graphics.Color
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.cardview.widget.CardView
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -29,16 +26,14 @@ class NoteAdapter : ListAdapter<Note, NoteAdapter.ViewHolder>(NoteDiffCallback()
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val tvTitle: TextView = itemView.findViewById(R.id.tvRecyclerViewTitle)
         private val tvDescription: TextView = itemView.findViewById(R.id.tvRecyclerViewDescription)
-        private val cardView : MaterialCardView = itemView.findViewById(R.id.bgCardView)
+        private val cardView: MaterialCardView = itemView.findViewById(R.id.bgCardView)
 
         fun bind(note: Note) {
             tvTitle.text = note.noteTitle
             tvDescription.text = note.noteDescription
-
-            val randomColorResId = getRandomColor()
-            val randomColor = itemView.context.getColor(randomColorResId)
-            cardView.setCardBackgroundColor(randomColor)
+            cardView.setCardBackgroundColor(itemView.context.getColor(getRandomColor()))
         }
+
         private fun getRandomColor(): Int {
             val colorList = listOf(
                 R.color.notec1,
@@ -47,11 +42,9 @@ class NoteAdapter : ListAdapter<Note, NoteAdapter.ViewHolder>(NoteDiffCallback()
                 R.color.notec4,
                 R.color.notec5,
             )
-
             val randomIndex = Random().nextInt(colorList.size)
             return colorList[randomIndex]
         }
-
     }
 
 }

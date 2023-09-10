@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.room.database.Note
 import com.example.room.database.NoteAdapter
 import com.example.room.database.NoteDao
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun settingUpRecyclerView() {
         binding.recyclerView.apply {
-            layoutManager = GridLayoutManager(this@MainActivity, 2)
+            layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             adapter = noteAdapter
         }
     }
@@ -42,24 +42,18 @@ class MainActivity : AppCompatActivity() {
     private fun addingNotes() {
         binding.button.setOnClickListener {
             val title = binding.editText.text.toString()
-            var description = binding.editText2.text.toString()
+            val description = binding.editText2.text.toString()
 
-            if (title.isNotEmpty()) {
-                if (description.isEmpty()) {
-                    description = "No text"
-                }
+            if (title.isNotEmpty() && description.isNotEmpty()) {
                 lifecycleScope.launch(Dispatchers.IO) {
                     noteDao.addNote(Note(0, title, description))
-                    // Fetch the updated notes immediately
                     val notes = noteDao.getNotes()
                     updateRecyclerView(notes)
                 }
             } else {
                 binding.editText.error = "Please Fill!"
-//                binding.editText2.error = "Please Fill!"
+                binding.editText2.error = "Please Fill!"
             }
-
-            // Clear the input fields
             binding.editText.text.clear()
             binding.editText2.text.clear()
         }
