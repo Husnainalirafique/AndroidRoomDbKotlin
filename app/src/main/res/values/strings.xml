@@ -2,7 +2,6 @@
     <string name="app_name">Room</string>
     <string name="enter_name">Enter Name</string>
     <string name="enter_number">Enter Number</string>
-    <string name="save">Save</string>
+    <string name="add_note">Add Note</string>
     <string name="display">Display</string>
-    <string name="main_compose">Main</string>
 </resources>

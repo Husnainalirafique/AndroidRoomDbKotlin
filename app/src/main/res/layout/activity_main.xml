@@ -3,14 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:ignore="SpeakableTextPresentCheck">
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginHorizontal="20dp"
             tools:context=".MainActivity">
 
@@ -20,7 +15,7 @@
                 android:layout_height="52dp"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/et_bg"
-                android:hint="@string/enter_name"
+                android:hint="Enter Title"
                 android:inputType="textPersonName"
                 android:paddingStart="20dp"
                 android:paddingEnd="10dp"
@@ -35,8 +30,8 @@
                 android:layout_height="52dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/et_bg"
-                android:hint="@string/enter_number"
-                android:inputType="number"
+                android:hint="Enter Description"
+                android:inputType="text"
                 android:paddingStart="20dp"
                 android:paddingEnd="10dp"
                 app:layout_constraintEnd_toEndOf="@+id/editText"
@@ -45,25 +40,38 @@
                 tools:ignore="Autofill" />
 
             <Button
+                android:id="@+id/button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/save"
+                android:layout_marginTop="16dp"
+                android:text="@string/add_note"
                 app:layout_constraintEnd_toEndOf="@+id/editText2"
+                app:layout_constraintHorizontal_bias="0.15"
                 app:layout_constraintStart_toStartOf="@+id/editText2"
-                app:layout_constraintTop_toBottomOf="@+id/editText2"
-                app:layout_constraintHorizontal_bias="0.20"
-                />
+                app:layout_constraintTop_toBottomOf="@+id/editText2" />
 
             <Button
+                android:id="@+id/buttonDelete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/display"
+                android:layout_marginTop="16dp"
+                android:text="Delete Notes"
                 app:layout_constraintEnd_toEndOf="@+id/editText2"
                 app:layout_constraintHorizontal_bias="0.80"
                 app:layout_constraintStart_toStartOf="@+id/editText2"
                 app:layout_constraintTop_toBottomOf="@+id/editText2" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button"
+                app:spanCount="3"
+                tools:listitem="@layout/note_item" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+
 </layout>
