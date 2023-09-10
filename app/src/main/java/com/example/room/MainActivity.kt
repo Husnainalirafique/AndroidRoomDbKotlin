@@ -73,7 +73,6 @@ class MainActivity : AppCompatActivity() {
                 noteDao.deleteAllUsers()
                 val afterDel = noteDao.getNotes()
                 updateRecyclerView(afterDel)
-
             }
         }
     }
