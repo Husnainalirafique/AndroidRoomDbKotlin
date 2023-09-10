@@ -68,6 +68,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun deletingNotes() {
+
         binding.buttonDelete.setOnClickListener {
             lifecycleScope.launch(Dispatchers.IO) {
                 noteDao.deleteAllUsers()
