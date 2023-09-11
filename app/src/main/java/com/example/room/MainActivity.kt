@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun settingUpRecyclerView() {
+
         binding.recyclerView.apply {
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             adapter = noteAdapter
