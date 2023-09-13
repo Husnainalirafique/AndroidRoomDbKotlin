@@ -1,4 +1,4 @@
-package com.example.room.database
+package com.example.room.database.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.room.R
+import com.example.room.database.Note
 import com.google.android.material.card.MaterialCardView
 import java.util.Random
 
@@ -33,7 +34,6 @@ class NoteAdapter : ListAdapter<Note, NoteAdapter.ViewHolder>(NoteDiffCallback()
             tvDescription.text = note.noteDescription
             cardView.setCardBackgroundColor(itemView.context.getColor(getRandomColor()))
         }
-
         private fun getRandomColor(): Int {
             val colorList = listOf(
                 R.color.notec1,

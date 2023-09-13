@@ -6,7 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.room.database.Note
-import com.example.room.database.NoteAdapter
+import com.example.room.database.adapter.NoteAdapter
 import com.example.room.database.NoteDao
 import com.example.room.database.NoteDb
 import com.example.room.databinding.ActivityMainBinding
